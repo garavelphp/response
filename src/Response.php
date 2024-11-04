@@ -17,6 +17,7 @@ class Response
             'status' => $status,
             'message' => $message
         ]);
+        return $this->send();
     }
 
     public function fail($message = '', $status = 400)
@@ -27,6 +28,7 @@ class Response
             'status' => $status,
             'message' => $message
         ]);
+        return $this->send();
     }
 
     public function success($data, $message = '', $status = 200)
@@ -38,7 +40,7 @@ class Response
             'status' => $status,
             'message' => $message
         ]);
-        return $this;
+        return $this->send();
     }
 
     public function error($message = '', $status = 500)
@@ -49,7 +51,7 @@ class Response
             'status' => $status,
             'message' => $message
         ]);
-        return $this;
+        return $this->send();
     }
 
     public function send()
@@ -66,8 +68,7 @@ class Response
             'status' => $status,
             'message' => $message
         ]);
-        return $this;
-
+        return $this->send();
     }
 
     public function unauthorized($message = 'Unauthorized', $status = 401)
@@ -78,6 +79,7 @@ class Response
             'status' => $status,
             'message' => $message
         ]);
+        return $this->send();
     }
 
 
@@ -89,6 +91,7 @@ class Response
             'status' => $status,
             'message' => $message
         ]);
+        return $this->send();
     }
 
     public function methodNotAllowed($message = 'Method Not Allowed', $status = 405)
@@ -99,8 +102,9 @@ class Response
             'status' => $status,
             'message' => $message
         ]);
+        return $this->send();
     }
-    
+
     public function html($content)
     {
         header('Content-Type: text/html');
